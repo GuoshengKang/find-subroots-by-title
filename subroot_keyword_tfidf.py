@@ -13,7 +13,7 @@ input:sample_300000_subroot_token
 subroot_name,keyword1;keyword2;keyword3;···
 output:
 keywords文件--所有的关键词
-subroots文件--subroot及其关键词的数量(不去重)
+subroots文件--subroot及其关键词的数量(不同的title中的关键词,不去重)
 subroot_keyword_tfidf--subroot中每个keyword的tf*idf值
 '''
 print 'the program start now:',time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()) 
@@ -37,6 +37,7 @@ for line in lines:
   else:
     subroot_count[subroot]=1
   keyword_list=token.split(unicode(';','utf-8'))
+  keyword_list=list(set(keyword_list)) #jieba分词去重
   keywords.extend(keyword_list)
   keywords=list(set(keywords)) #去重
   if subroot2keyword.has_key(subroot):
