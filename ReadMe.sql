@@ -2,6 +2,8 @@ Project:find top-k subroots by title
 功能:根据商品的title找到top-k个最可能所属的商品类别
 方法:根据已有的商品title及其类别,采用TF-IDF计算每个类别中的词语权重.
 对于新的商品title,首先对其分词,然后关键词在各个类别的权重,计算属于每个类别的得分,返回top-k个得分最高类别.
+TF:subroot中包含该关键词的title数量/subroot中所有的title数量
+IDF:log(所有的subroot数量/(包含该关键词的subroot数量+1))
 注:商品title的分词采用jieba的全索引模式分词,并使用自己的词库.
 
 【Step1】:根据taobao的subroot_name找到DCG的subroot_name
