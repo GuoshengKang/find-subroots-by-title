@@ -25,6 +25,8 @@ ON t1.root_name=t2.root_name
 AND t1.subroot_name=t2.subroot_name
 WHERE t2.root_name IS NOT NULL
 AND   t2.subroot_name IS NOT NULL;
+注:config_newcid_dim.csv为淘宝和DCG的类别对应关系(手动生成)
+root_name,subroot_name,newroot,newsubroot
 
 【Step2】:将title_set展开,找到每个title_id对应的'root_name&subroot_name'
 DROP TABLE tmp_kgs_newrootsubroot_title_id;
